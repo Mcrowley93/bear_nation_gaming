@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block page_title %}Login{% endblock %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+    <section class="page-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Log In</h1>
+                    <br>
+
+                    {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                        <p>Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</p>
+                        {% else %}
+                        <p>Please login to see this page.</p>
+                        {% endif %}
+                    {% endif %}
+
+                    <form method="post" action="{% url 'users_login' %}">
+                        {% csrf_token %}
+                        {{ login_form | as_bootstrap }}
+
+                        <input type="submit" value="login">
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </form>
+                    <br>
+                    <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
