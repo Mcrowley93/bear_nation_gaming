@@ -5,21 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegistrationForm
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(data=request.POST)
-#         if form.is_valid():
-#             new_user = form.save()
-#             authenticated_user = authenticate(username=new_user.username,
-#                                               password=request.POST['password1'])
-#             login(request, authenticated_user)
-#             return HttpResponseRedirect(reverse('home'))
-#     else:
-#         form = UserCreationForm()
-#
-#     context = {'form': form}
-#     return render(request, 'users/register.html', context)
-
 # Registration View
 def register(request):
     """ Render the registration page """
@@ -36,8 +21,8 @@ def register(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                return redirect(reverse('home'))
                 messages.success(request, "You have successfully registered")
+                return redirect(reverse('home'))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
@@ -57,7 +42,7 @@ def login(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
 
-        # Code to allow users to login with both username/email was adapted from https://www.youtube.com/watch?v=c7PqMsQiWKU
+        # Code to allow accounts to login with both username/email was adapted from https://www.youtube.com/watch?v=c7PqMsQiWKU
         try:
             user = auth.authenticate(username=User.objects.get(email=username), password=password)
         except:
@@ -80,4 +65,4 @@ def logout(request):
     """Log the user out"""
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
-    return redirect(reverse('logout'))
+    return redirect(reverse('home'))
