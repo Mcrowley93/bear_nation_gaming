@@ -10,13 +10,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('reviews', '0001_initial'),
-        ('users', '0001_initial'),
+        ('accounts', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='review',
             name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='users.User'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='accounts.User'),
         ),
     ]
