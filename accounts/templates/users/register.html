@@ -15,14 +15,14 @@
                         {{ form.errors }}
                     {% endif %}
 
-                    <form method="post" action="{% url 'users_register' %}">
+                    <form method="post" action="{% url 'register' %}">
                         {% csrf_token %}
                         {{ registration_form | as_bootstrap }}
                         <br>
                         <input type="submit" value="Submit">
                     </form>
                     <br>
-                    <p>If you already have an account, you can <a href="{%url 'users_login' %}">sign in here!</a></p>
+                    <p>If you already have an account, you can <a href="{%url 'login' %}">sign in here!</a></p>
                     <br>
                 </div>
             </div>
