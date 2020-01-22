@@ -4,24 +4,28 @@
 
 {% block content %}
     <section class="page-container">
-        <h1>Bear Nation Gaming</h1>
-        <h3>Forging a community of like-minded gamers!</h3>
-        <br>
-        {% if user.is_authenticated %}
-            <h5>Welcome back {{ request.user.username }}!</h5>
-        {% else %}
-            <h5>Welcome!</h5>
-        {% endif %}
-        <p>
-            Here at Bear Nation Gaming, we strive to bring you the best content, from reviews and live-streams, to providing premium merchandise.
-            All this whilst trying to bring together a thriving community of Gamers from all walks of life.
-            <br>
-            From the hardcore PvP of Rainbow Six Siege, to the dedicated daily PvE grind of Destiny, and everything in between.
-            <br>
-            The one fact that remains true regardless of Platform, Genre, Gender or Location, is we all share a love for video games.
-            <br>
-            <br>
-            So please, browse our <a class="text-links" href="{% url 'all_reviews' %}">reviews</a>, check out our <a class="text-links" href="{% url 'all_products' %}">merchandise</a>, and maybe head over to the <a class="text-links" href="#">community page</a>...you could find the gaming buddy you always wished you'd had!
-        </p>
+        <div class="row">
+            <div class="col-12">
+                <h1>Bear Nation Gaming</h1>
+                <h3>Forging a community of like-minded gamers!</h3>
+                <br>
+                {% if user.is_authenticated %}
+                    <h5>Welcome back {{ request.user.username }}!</h5>
+                {% else %}
+                    <h5>Welcome!</h5>
+                {% endif %}
+                <p>
+                    Here at Bear Nation Gaming, we strive to bring you the best content, from reviews and live-streams, to providing premium merchandise.
+                    All this whilst trying to bring together a thriving community of Gamers from all walks of life.
+                    <br>
+                    From the hardcore PvP of Rainbow Six Siege, to the dedicated daily PvE grind of Destiny, and everything in between.
+                    <br>
+                    The one fact that remains true regardless of Platform, Genre, Gender or Location, is we all share a love for video games.
+                    <br>
+                    <br>
+                    So please, browse our <a class="text-links" href="{% url 'all_reviews' %}">reviews</a>, check out our <a class="text-links" href="{% url 'all_products' %}">merchandise</a>, and maybe head over to the <a class="text-links" href="#">community page</a>...you could find the gaming buddy you always wished you'd had!
+                </p>
+            </div>
+        </div>
     </section>
 {% endblock %}
