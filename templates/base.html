@@ -19,46 +19,96 @@
 <body>
     <header>
         <nav class="navbar fixed-top navbar-custom">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/bng-icon.png' %}" class='logo'/></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/bng-icon.png' %}" class='logo' alt="bear nation gaming icon"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fas fa-bars"></i></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'all_reviews' %}">Reviews</a>
+                        {% if '/' == request.path %}
+                            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        {% endif %}
                     </li>
+
+                    <li class="nav-item">
+                        {% if 'all_reviews' in request.path %}
+                            <a class="nav-link active" href="{% url 'all_reviews' %}">Reviews</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'all_reviews' %}">Reviews</a>
+                        {% endif %}
+                    </li>
+
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Add a review</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Community</a>
-                    </li>
+                        <li class="nav-item">
+                            {% if 'add_a_review' in request.path %}
+                                <a class="nav-link active" href="{% url 'add_a_review' %}">Add a review</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'add_a_review' %}">Add a review</a>
+                            {% endif %}
+                        </li>
+
+                        <li class="nav-item">
+                            {% if 'community' in request.path %}
+                                <a class="nav-link active" href="#">Community</a>
+                            {% else %}
+                                <a class="nav-link" href="#">Community</a>
+                            {% endif %}
+                        </li>
                     {% endif %}
+
                     {% if not user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
+                        <li class="nav-item">
+                            {% if 'register' in request.path %}
+                                <a class="nav-link active" href="{% url 'register' %}">Register</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            {% endif %}
+                        </li>
+
+                        <li class="nav-item">
+                            {% if 'login' in request.path %}
+                                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            {% endif %}
+                        </li>
                     {% endif %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'all_products' %}">Products</a>
+                        {% if 'products' in request.path %}
+                            <a class="nav-link active" href="{% url 'all_products' %}">Products</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'all_products' %}">Products</a>
+                        {% endif %}
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        {% if 'view_cart' in request.path %}
+                            <a class="nav-link active" href="{% url 'view_cart' %}">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                {% if product_count > 0 %}
+                                    <label class="badge badge-warning">{{ product_count }}</label>
+                                {% endif %}
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'view_cart' %}">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                {% if product_count > 0 %}
+                                    <label class="badge badge-warning">{{ product_count }}</label>
+                                {% endif %}
+                            </a>
+                        {% endif %}
                     </li>
+
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
@@ -95,17 +145,19 @@
             <div class="row footer-row">
                 <div class="col-12 col-md-4">
                     <div class="footer_links footer_positioning">
-                        <a class="my-github-link" href="https://github.com/Mcrowley93" target="_blank">Martin Crowley - &copy;2019</a>
+                        <a class="my-github-link" href="https://github.com/Mcrowley93" target="_blank">Martin Crowley - &copy;2020</a>
                     </div>
                 </div>
-                <div class="d-none d-md-block col-md-4">
-                    <a class="footer_logo" href="{% url 'home' %}"><img src="{% static 'images/bng-icon.png' %}" class='logo'/></a>
-                </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 d-md-block col-md-4">
                     <div class="footer_links footer_positioning">
                         <a href="https://github.com/Mcrowley93" target="_blank"><i class="fab fa-github social-media-icon"></i></a>
                         <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square social-media-icon"></i></a>
                         <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram social-media-icon"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="footer_links footer_positioning">
+                        <a class="my-github-link" href="https://mail.google.com/" target="_blank">bearnationgames@gmail.com</a>
                     </div>
                 </div>
             </div>
