@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block page_title %}Cart{% endblock %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<section class="page-container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Cart</h1>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    {% if product_count == 0 %}
+                        <h4>
+                            There are no items currently in your cart!<br>
+                            Why not check out our merchandise store <a href="{% url 'all_products' %}">here</a>
+                        </h4>
+                    {% elif product_count == 1 %}
+                        <p>There is {{ product_count }} item currently in your cart:</p>
+                    {% else %}
+                        <p>There are {{ product_count }} items currently in your cart:</p>
+                    {% endif %}
+
+                    <br>
+
+                    {% for item in cart_items %}
+                        <p>
+                            <img src="{{ item.product.image.url}}" width="130rem" height="150rem">
+                        </p>
+                        <p>
+                            {{ item.product.name }}
+                        </p>
+                        <p>
+                            £{{ item.product.price }}
+                        </p>
+                        <form method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <p>
+                                    <input class="input-cart text-center" name="quantity" type="number" min="0" max="999" class="form-control" value="{{item.quantity}}">
+                                    <br>
+                                    <button type="submit" class="btn btn-success btn-sm rounded-0"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                                </p>
+                            </div>
+                        </form>
+                        <hr>
+                    {% endfor %}
+                </div>
+            </div>
+{#            <div class="row">#}
+{#                <div class="col-12">#}
+{#                    <table class="table table-responsive checkout-table">#}
+{#                        <thead class="thead-dark">#}
+{#                          <tr>#}
+{#                            <th scope="col">Product</th>#}
+{#                            <th scope="col">Product Name</th>#}
+{#                            <th scope="col">Price</th>#}
+{#                            <th scope="col">Quantity</th>#}
+{#                          </tr>#}
+{#                        </thead>#}
+{#                        <tbody>#}
+{#                            {% for item in cart_items %}#}
+{#                                <tr>#}
+{#                                    <td>#}
+{#                                        <img src="{{ item.product.image.url}}" width="50px" height="60px">#}
+{#                                    </td>#}
+{#                                    <td>{{ item.product.name }}</td>#}
+{#                                    <td>£{{ item.product.price }}</td>#}
+{#                                    <td>#}
+{#                                      <form method="post" action="{% url 'adjust_cart' item.id %}">#}
+{#                                        {% csrf_token %}#}
+{#                                        <div class="form-group">#}
+{#                                          <div class="input-group">#}
+{#                                            <input class="input-cart text-center" name="quantity" type="number" min="0" max="999" class="form-control" value="{{item.quantity}}">#}
+{#                                            <button type="submit" class="btn btn-success btn-sm rounded-0"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>#}
+{#                                          </div>#}
+{#                                        </div>#}
+{#                                      </form>#}
+{#                                    </td>#}
+{#                                </tr>#}
+{#                            {% endfor %}#}
+{#                        </tbody>#}
+{#                    </table>#}
+{#                </div>#}
+{#            </div>#}
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <h4>Total:&nbsp</h4>
+                    <p>£{{ total }}</p>
+                    <p>
+                        <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
