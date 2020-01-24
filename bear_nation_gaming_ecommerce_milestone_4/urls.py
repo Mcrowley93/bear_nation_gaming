@@ -12,7 +12,7 @@ urlpatterns = [
     # path('blogs/', include('blogs.urls')),
     path('reviews/', include('reviews.urls')),
     path('cart/', include('cart.urls')),
-    # path('checkout/', include('checkout.urls')),
+    path('checkout/', include('checkout.urls')),
     path('accounts/', include('accounts.urls')),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
