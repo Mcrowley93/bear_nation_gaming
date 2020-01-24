@@ -4,27 +4,55 @@
 
 {% block content %}
     <section class="page-container">
-        <h1>Merchandise</h1>
-        <br>
-        <p>
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <h1>Merchandise</h1>
+                <br>
 
-        </p>
-        {% for product in products %}
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ product.image }}" class="card-img" alt="..."/>
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.description }}</p>
-                        <p class="card-text">{{ product.price }}</p>
+                <br>
+                <div class="row">
+                    <div id="search" class="offset-1 col-10 offset-md-2 col-md-8 mx-auto">
+                        <form action="{% url 'products_search' %}" method="GET">
+                            <div class="form-group">
+                                    <p>
+                                        <input type="text" name="query" class="form-control" placeholder="Search">
+                                    </p>
+                                    <p>
+                                        <button class="btn btn-dark ml-1" type="submit">Search</button>
+                                        <a class="btn btn-dark ml-1" href="{% url 'all_products' %}">Cancel</a>
+                                    </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <br>
+                <div class="row">
+                    {% for product in products %}
+                        <div class="offset-1 col-10 offset-md-0 col-md-6">
+                            <div class="card mb-3 border-dark" style="background-color: grey;">
+                                <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Image of {{ product.name }}"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">{{ product.description }}</p>
+                                    <p class="card-text">£{{ product.price }}</p>
+                                    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                                        {% csrf_token %}
+                                        <div class="input-group">
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-success" type="submit">Add</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <br>
             </div>
         </div>
-        {% endfor %}
     </section>
 
 {% endblock %}
