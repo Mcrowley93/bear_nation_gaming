@@ -28,7 +28,7 @@
 
                     {% for item in cart_items %}
                         <p>
-                            <img src="{{ item.product.image.url}}" width="130rem" height="150rem">
+                            <img src="{{ item.product.image.url}}" width="130rem" height="150rem" alt="image of {{ item.product.name }}">
                         </p>
                         <p>
                             {{ item.product.name }}
@@ -40,7 +40,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <p>
-                                    <input class="input-cart text-center" name="quantity" type="number" min="0" max="999" class="form-control" value="{{item.quantity}}">
+                                    <input name="quantity" type="number" min="0" max="999" class="form-control input-cart text-center" value="{{item.quantity}}">
                                     <br>
                                     <button type="submit" class="btn btn-success btn-sm rounded-0">Amend</button>
                                 </p>
@@ -56,7 +56,7 @@
                     <h4>Total:&nbsp</h4>
                     <p>£{{ total }}</p>
                     <p>
-                        <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
                     </p>
                 </div>
             </div>
