@@ -6,11 +6,20 @@
     <section class="page-container">
         <div class="row">
             <div class="col-12">
-                <br>
-                <h1>Community</h1>
-                <br>
-
-                <br>
+                <div class="row">
+                    <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        <br>
+                        <h1>Community</h1>
+                        <br>
+                        <p>
+                            Welcome to our community forum {{ user }}, here you can find anything from: blog posts and discussions, to team-up requests and much more.<br>
+                            Want to get interact with other users? Then why not comment on a current community post...<br>
+                            For those wishing to spark a new topic of conversation, or find others to play online with, why not add a new community post...<br>
+                            <br><a class="btn btn-success" href="{% url 'post_new' %}">Add New Post</a>
+                        </p>
+                        <br>
+                    </div>
+                </div>
                 <div class="row">
                     <div id="search" class="offset-1 col-10 offset-md-2 col-md-8 mx-auto">
                         <form action="{% url 'posts_search' %}" method="GET">
@@ -32,7 +41,8 @@
                             <hr>
                             <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                             <p>posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
-                            <p>{{ post.text }}</p>
+                            <p>{{ post.text|truncatechars:50 }}</p>
+                            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
                         </div>
                     {% endfor %}
                 </div>
