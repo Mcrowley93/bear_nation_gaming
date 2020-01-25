@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block page_title %}New Post{% endblock %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+    <section class="page-container">
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <h1>New Community Post</h1>
+
+                <br>
+                <div class="row">
+                    <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        <h2>Community Blog Post</h2>
+                        <form method="POST" class="post-form">{% csrf_token %}
+                            {{ form | as_bootstrap }}
+                            <button type="submit" class="save btn btn-default">Save</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
