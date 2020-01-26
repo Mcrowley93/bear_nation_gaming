@@ -17,8 +17,10 @@
                         <h2>Community Blog Post</h2>
                         <form method="POST" class="post-form">{% csrf_token %}
                             {{ form | as_bootstrap }}
-                            <button type="submit" class="save btn btn-default">Save</button>
+                            <button type="submit" class="save btn btn-success">Save</button>
                         </form>
+                        <!-- Created a button to go back one page using javascript and the users history -->
+                        <a class="btn btn-cancel" href="javascript:history.back()">Cancel</a>
                     </div>
                 </div>
                 <br>
