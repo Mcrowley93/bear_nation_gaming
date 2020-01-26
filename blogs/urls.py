@@ -1,5 +1,5 @@
 from django.urls import path
-from blogs.views import all_posts, post_new, post_edit, post_remove, post_detail, posts_search
+from blogs.views import all_posts, post_new, post_edit, post_remove, post_detail, posts_search, add_comment_to_post
 
 urlpatterns = [
     path('all_posts/', all_posts, name='all_posts'),
@@ -10,5 +10,7 @@ urlpatterns = [
     # it will then transfer it to the post_detail view as a variable called pk
     path('post/<int:pk>/', post_detail, name='post_detail'),
     path('posts_search', posts_search, name='posts_search'),
+    path('post/<int:pk>/comment/', add_comment_to_post, name='add_comment_to_post'),
+
 
 ]
