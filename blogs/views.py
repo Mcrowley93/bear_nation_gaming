@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 
 def all_posts(request):
@@ -53,3 +53,18 @@ def post_detail(request, pk):
 def posts_search(request):
     posts = Post.objects.filter(title__icontains=request.GET['query'])
     return render(request, "blogs/all_posts.html", {"posts": posts})
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        comment_form = CommentForm()
+    return render(request, 'blogs/add_comment_to_post.html', {'comment_form': comment_form})
