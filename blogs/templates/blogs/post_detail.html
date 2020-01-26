@@ -8,9 +8,36 @@
             <div class="col-12">
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        <span class="float-left"><a href="{% url 'all_posts' %}"><i class="fas fa-arrow-left"></i></a></span>
                         <h2>{{ post.title }}</h2>
-                        <p>posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
+                        <p class="small">posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
                         <p>{{ post.text }}</p>
+                        {% if user == post.author %}
+                            <p>
+                                <a class="btn btn-success" href="{% url 'post_edit' pk=post.pk %}">EDIT POST</a>
+                            </p>
+                            <p>
+                                <a class="btn btn-warning" href="{% url 'post_remove' pk=post.pk %}">DELETE POST</a>
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="offset-1 col-10 offset-md-2 col-md-8">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        {% for comment in post.comments.all %}
+                            <div class="comment">
+                                <div class="date">{{ comment.created_date }}</div>
+                                <strong>{{ comment.author }}</strong>
+                                <p>{{ comment.text|linebreaks }}</p>
+                            </div>
+                        {% empty %}
+                            <p>No comments here yet! :(</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <br>
