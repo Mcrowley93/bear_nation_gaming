@@ -39,7 +39,7 @@
                     {% for post in posts %}
                         <div class="offset-1 col-10 offset-md-2 col-md-8">
                             <hr>
-                            <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+                            <h4><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                             <p>posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
                             <p>{{ post.text|truncatechars:50 }}</p>
                             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
