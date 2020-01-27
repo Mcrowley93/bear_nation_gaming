@@ -28,34 +28,42 @@
 
                     <li class="nav-item">
                         {% if '/' == request.path %}
-                            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link active" href="{% url 'home' %}">
+                                <i class="fas fa-home"></i> Home</a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <i class="fas fa-home"></i> Home</a>
                         {% endif %}
                     </li>
 
                     <li class="nav-item">
                         {% if 'all_reviews' in request.path %}
-                            <a class="nav-link active" href="{% url 'all_reviews' %}">Reviews</a>
+                            <a class="nav-link active" href="{% url 'all_reviews' %}">
+                                <i class="fab fa-readme"></i> Reviews</a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'all_reviews' %}">Reviews</a>
+                            <a class="nav-link" href="{% url 'all_reviews' %}">
+                                <i class="fab fa-readme"></i> Reviews</a>
                         {% endif %}
                     </li>
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             {% if 'add_a_review' in request.path %}
-                                <a class="nav-link active" href="{% url 'add_a_review' %}">Add a review</a>
+                                <a class="nav-link active" href="{% url 'add_a_review' %}">
+                                    <i class="fas fa-pen"></i> Add a review</a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'add_a_review' %}">Add a review</a>
+                                <a class="nav-link" href="{% url 'add_a_review' %}">
+                                    <i class="fas fa-pen"></i> Add a review</a>
                             {% endif %}
                         </li>
 
                         <li class="nav-item">
                             {% if 'community' in request.path %}
-                                <a class="nav-link active" href="{% url 'all_posts' %}">Community</a>
+                                <a class="nav-link active" href="{% url 'all_posts' %}">
+                                    <i class="fas fa-comments"></i> Community</a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'all_posts' %}">Community</a>
+                                <a class="nav-link" href="{% url 'all_posts' %}">
+                                    <i class="fas fa-comments"></i> Community</a>
                             {% endif %}
                         </li>
                     {% endif %}
@@ -63,26 +71,32 @@
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
                             {% if 'register' in request.path %}
-                                <a class="nav-link active" href="{% url 'register' %}">Register</a>
+                                <a class="nav-link active" href="{% url 'register' %}">
+                                    <i class="fas fa-user-plus"></i> Register</a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                                <a class="nav-link" href="{% url 'register' %}">
+                                    <i class="fas fa-user-plus"></i> Register</a>
                             {% endif %}
                         </li>
 
                         <li class="nav-item">
                             {% if 'login' in request.path %}
-                                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+                                <a class="nav-link active" href="{% url 'login' %}">
+                                    <i class="fas fa-sign-in-alt"></i> Login</a>
                             {% else %}
-                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                <a class="nav-link" href="{% url 'login' %}">
+                                    <i class="fas fa-sign-in-alt"></i> Login</a>
                             {% endif %}
                         </li>
                     {% endif %}
 
                     <li class="nav-item">
                         {% if 'products' in request.path %}
-                            <a class="nav-link active" href="{% url 'all_products' %}">Products</a>
+                            <a class="nav-link active" href="{% url 'all_products' %}">
+                                <i class="fas fa-store"></i> Merchandise</a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'all_products' %}">Products</a>
+                            <a class="nav-link" href="{% url 'all_products' %}">
+                                <i class="fas fa-store"></i> Merchandise</a>
                         {% endif %}
                     </li>
 
@@ -106,7 +120,8 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            <a class="nav-link" href="{% url 'logout' %}">
+                                <i class="fas fa-sign-out-alt"></i> Logout</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -116,16 +131,22 @@
     <main>
         <div class="container-fluid" style="background-image: url({% static 'images/sony-ps4-wallpaper.jpg' %}); background-position: center;">
             <div class="top-padding"></div>
-            {% if messages %}
-                {% for message in messages %}
-                <div id="flashed-message" class="container">
-                    <div class="flash_message">
-                        <span class="float-right close-btn"><a><i class="far fa-times-circle close_flash"></i></a></span><p>Please Note:</p>
-                        <p>{{ message }}</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div id="flashed-message" class="page-container">
+                                <div class="flash_message">
+                                    <span class="float-right close-btn"><a><i class="far fa-times-circle close_flash"></i></a></span><p>Please Note:</p>
+                                    <p>{{ message }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
-                {% endfor %}
-            {% endif %}
+            </div>
 
             <div class="container">
                 <div class="row">
