@@ -18,6 +18,7 @@ class Post(models.Model):
         return self.title
 
 
+# Help creating the comment model was from https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/
 class Comment(models.Model):
     post = models.ForeignKey('blogs.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
