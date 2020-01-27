@@ -10,14 +10,13 @@
             <div class="col-12">
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
-                        <br>
-                        <h2>New comment</h2>
+                        <h1>New comment</h1>
                         <form method="POST" class="post-form">{% csrf_token %}
                             {{ comment_form | as_bootstrap }}
-                            <button type="submit" class="save btn btn-success">Send</button>
+                            <button type="submit" class="save btn btn-custom sm-btn-sizing">Send</button>
                         </form>
                         <!-- Created a button to go back one page using javascript and the users history -->
-                        <a class="btn btn-cancel" href="javascript:history.back()">Cancel</a>
+                        <a class="btn btn-custom sm-btn-sizing" href="javascript:history.back()">Cancel</a>
                         <br>
                         <br>
                     </div>

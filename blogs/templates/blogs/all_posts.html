@@ -8,14 +8,13 @@
             <div class="col-12">
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
-                        <br>
                         <h1>Community</h1>
                         <br>
                         <p>
                             Welcome to our community forum {{ user }}, here you can find anything from: blog posts and discussions, to team-up requests and much more.<br>
                             Want to get interact with other users? Then why not comment on a current community post...<br>
                             For those wishing to spark a new topic of conversation, or find others to play online with, why not add a new community post...<br>
-                            <br><a class="btn btn-success" href="{% url 'post_new' %}">Add New Post</a>
+                            <br><a class="btn btn-custom" href="{% url 'post_new' %}">Add New Post</a>
                         </p>
                         <br>
                     </div>
@@ -28,8 +27,8 @@
                                         <input type="text" name="query" class="form-control" placeholder="Search">
                                     </p>
                                     <p>
-                                        <button class="btn btn-dark ml-1" type="submit">Search</button>
-                                        <a class="btn btn-dark ml-1" href="{% url 'all_posts' %}">Cancel</a>
+                                        <button class="btn btn-custom sm-btn-sizing ml-1" type="submit">Search</button>
+                                        <a class="btn btn-custom sm-btn-sizing ml-1" href="{% url 'all_posts' %}">Cancel</a>
                                     </p>
                             </div>
                         </form>
@@ -42,7 +41,7 @@
                             <h4><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                             <p>posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
                             <p>{{ post.text|truncatechars:50 }}</p>
-                            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+                            <a class="text-links" href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
                         </div>
                     {% endfor %}
                 </div>

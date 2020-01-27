@@ -8,19 +8,17 @@
     <section class="page-container">
         <div class="row">
             <div class="col-12">
-                <br>
                 <h1>New Community Post</h1>
 
                 <br>
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
-                        <h2>Community Blog Post</h2>
                         <form method="POST" class="post-form">{% csrf_token %}
                             {{ form | as_bootstrap }}
-                            <button type="submit" class="save btn btn-success">Save</button>
+                            <button type="submit" class="save btn btn-custom sm-btn-sizing">Post</button>
                         </form>
                         <!-- Created a button to go back one page using javascript and the users history -->
-                        <a class="btn btn-cancel" href="javascript:history.back()">Cancel</a>
+                        <a class="btn btn-custom sm-btn-sizing" href="javascript:history.back()">Cancel</a>
                     </div>
                 </div>
                 <br>
