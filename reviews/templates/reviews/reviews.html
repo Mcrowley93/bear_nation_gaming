@@ -1,38 +1,64 @@
 {% extends 'base.html' %}
 
+{% block page_title %}Reviews{% endblock %}
+{% load static from staticfiles %}
 
 {% block content %}
     <section class="page-container">
-        <h1>Reviews</h1>
-        <br>
-        <p>
-            Here at Bear Nation Gaming, we strive to bring you the best content, from reviews and live-streams, to providing premium merchandise.
-            All this whilst trying to bring together a thriving community of Gamers from all walks of life.
-            <br>
-            From the hardcore PvP of Rainbow Six Siege, to the dedicated daily PvE grind of Destiny, and everything in between.
-            <br>
-            The one fact that remains true regardless of Platform, Genre, Gender or Location, is we all share a love for video games.
-            <br>
-            <br>
-            So please, browse our <a class="" href="#">reviews</a>, check out our <a class="" href="#">merchandise</a>, and maybe head over to the <a class="" href="#">community page</a>...you could find the gaming buddy you always wished you'd had!
-        </p>
-        {% for review in reviews %}
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ review.image }}" class="card-img" alt="..."/>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <h1>Reviews</h1>
+                        <br>
+                        <p>
+                            The one thing every gamer will agree on: there are so many games, and not enough time to play them all!<br>
+                            This is why we decided to start writing reviews, to allow our users to understand which games may or may not be worth investing their time in, prior to them parting with their hard earned money.
+                        </p>
+                        <br>
+                        <div class="row">
+                            <div id="search" class="offset-1 col-10 mx-auto">
+                                <form action="{% url 'reviews_search' %}" method="GET">
+                                    <div class="form-group">
+                                            <p>
+                                                <input type="text" name="query" class="form-control" placeholder="Search">
+                                            </p>
+                                            <p>
+                                                <button class="btn btn-custom sm-btn-sizing ml-1" type="submit">Search</button>
+                                                <a class="btn btn-custom sm-btn-sizing ml-1" href="{% url 'all_reviews' %}">Cancel</a>
+                                            </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ review.game_title }}</h5>
-                        <p class="card-text">{{ review.author }}</p>
-                        <p class="card-text">{{ review.review }}</p>
-                        <p class="card-text">{{ review.score }}</p>
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <div class="row">
+                            {% for review in reviews %}
+                            <div class="col-12 col-sm-6">
+                                <div class="card mb-3 border-dark" style="background-color: #696969;">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card-body">
+                                                <h3 class="card-title orange-text">{{ review.game_title }}</h3>
+                                                <p class="small">written by: <span class="orange-text">{{ review.author }}</span><br>on {{ review.created_date }}</p>
+                                                <p class="card-text">{{ review.review }}</p>
+                                                <p class="card-text">Score: <span class="orange-text">{{ review.score }}/10</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </section>
 
 {% endblock %}
