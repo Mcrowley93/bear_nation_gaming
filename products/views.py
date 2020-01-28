@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductReviewForm
+from django.contrib.auth.decorators import login_required
 
 
 def all_products(request):
@@ -19,6 +20,7 @@ def product_details(request, pk):
     return render(request, 'products/product_details.html', {'product': product})
 
 
+@login_required()
 def add_review_to_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
