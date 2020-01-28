@@ -28,36 +28,37 @@
                                 </div>
                             </form>
                         </div>
+                        <hr>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="offset-1 col-10 offset-md-2 col-md-8">
-{#        <div class="row">#}
-{#            <div class="col-12">#}
-{#                <div class="row">#}
-{#                    <div class="offset-1 col-10 offset-md-2 col-md-8">#}
-{#                        <br>#}
-{#                        <a class="btn btn-custom lg-btn-sizing" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>#}
-{#                        <br>#}
-{#                        <br>#}
-{#                        <hr>#}
-{#                        <h3>Comments</h3>#}
-{#                        {% for comment in post.comments.all %}#}
-{#                            <hr>#}
-{#                            <div class="comment">#}
-{#                                <div class="date small">{{ comment.created_date }}</div>#}
-{#                                <p class="orange-text">{{ comment.author }}</p>#}
-{#                                <p>{{ comment.text|linebreaks }}</p>#}
-{#                            </div>#}
-{#                        {% empty %}#}
-{#                            <p>No comments here yet! :(</p>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                </div>#}
-{#                <br>#}
-{#            </div>#}
-{#        </div>#}
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        <br>
+                        <a class="btn btn-custom lg-btn-sizing" href="{% url 'add_review_to_product' pk=product.pk %}">Review the Product</a>
+                        <br>
+                        <br>
+                        <hr>
+                        <h3>Reviews</h3>
+                        {% for review in product.productreviews.all %}
+                            <hr>
+                            <div class="comment">
+                                <div class="date small">{{ review.created_date }}</div>
+                                <p class="orange-text">{{ review.reviewer }}</p>
+                                <p>{{ review.review|linebreaks }}</p>
+                                <p>Rating: {{ review.rating }}/5</p>
+                            </div>
+                        {% empty %}
+                            <p>No reviews here yet! :(</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
     </section>
 
 {% endblock %}
