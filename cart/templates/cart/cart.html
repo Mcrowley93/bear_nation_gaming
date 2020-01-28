@@ -9,15 +9,15 @@
 <section class="page-container">
     <div class="row">
         <div class="col-12">
-            <h1>Cart</h1>
-            <br>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 offset-md-1 col-md-10">
+                    <h1>Cart</h1>
+                    <br>
                     {% if product_count == 0 %}
-                        <h4>
+                        <h5>
                             There are no items currently in your cart!<br>
-                            Why not check out our merchandise store <a href="{% url 'all_products' %}">here</a>
-                        </h4>
+                            Why not check out our merchandise store <a class="text-links" href="{% url 'all_products' %}">here</a>
+                        </h5>
                     {% elif product_count == 1 %}
                         <p>There is {{ product_count }} item currently in your cart:</p>
                     {% else %}
@@ -25,7 +25,10 @@
                     {% endif %}
 
                     <br>
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 offset-sm-1 col-sm-10">
                     {% for item in cart_items %}
                         <p>
                             <img src="{{ item.product.image.url}}" width="130rem" height="150rem" alt="image of {{ item.product.name }}">
@@ -36,27 +39,31 @@
                         <p>
                             £{{ item.product.price }}
                         </p>
-                        <form method="post" action="{% url 'adjust_cart' item.id %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <p>
-                                    <input name="quantity" type="number" min="0" max="999" class="form-control input-cart text-center" value="{{item.quantity}}">
-                                    <br>
-                                    <button type="submit" class="btn btn-success btn-sm rounded-0">Amend</button>
-                                </p>
+                        <div class="row">
+                            <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
+                                <form method="post" action="{% url 'adjust_cart' item.id %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="offset-1 col-10">
+                                            <label for="product-quantity" class="small">Quantity</label>
+                                            <input name="quantity" type="number" min="0" max="999" class="form-control sm-btn-sizing mx-auto input-cart text-center" value="{{item.quantity}}">
+                                            <button type="submit" class="btn btn-custom sm-btn-sizing">Amend</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                         <hr>
                     {% endfor %}
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 offset-md-1 col-md-10">
                     <h4>Total:&nbsp</h4>
                     <p>£{{ total }}</p>
                     <p>
-                        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                        <a href="{% url 'checkout' %}" class="btn btn-custom sm-btn-sizing" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
                     </p>
                 </div>
             </div>
