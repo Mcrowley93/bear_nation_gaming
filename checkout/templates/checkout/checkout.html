@@ -19,19 +19,20 @@
 <section class="page-container">
     <div class="row">
         <div class="col-12">
-            <br>
-            <h1>Checkout</h1>
-            <br>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 offset-md-1 col-md-10">
+                    <h1>Checkout</h1>
+                    <br>
                     {% if product_count == 1 %}
                         <p>You have {{ product_count }} item currently in your cart:</p>
                     {% else %}
                         <p>You have {{ product_count }} items currently in your cart:</p>
                     {% endif %}
-
-                    <br>
-
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
                     {% for item in cart_items %}
                         <p>
                             <img src="{{ item.product.image.url}}" width="130rem" height="150rem">
@@ -49,7 +50,6 @@
                     {% endfor %}
                 </div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-12">
                     <h4>Total:&nbsp</h4>
@@ -59,33 +59,37 @@
         </div>
     </div>
 </section>
-    <hr>
+<br>
 <section class="page-container">
     <div class="row">
         <div class="col-12">
-            <br>
-            <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-                <legend>Payment Details</legend>
+            <div class="row">
+                <div class="col-12 offset-md-1 col-md-10">
+                    <br>
+                    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+                        <legend>Payment Details</legend>
 
-                <div id="credit-card-errors" style="display: none;">
-                    <div class="alert-message block-message error" id="stripe-error-message"></div>
-                </div>
+                        <div id="credit-card-errors" style="display: none;">
+                            <div class="alert-message block-message error" id="stripe-error-message"></div>
+                        </div>
 
-                <p>Delivery Info</p>
-                <div class="form-group offset-1 col-10 offset-md-2 col-md-8">
-                    {{ order_form | as_bootstrap }}
-                </div>
-                <br>
-                <p>Payment Info</p>
-                <div class="form-group offset-1 col-10 offset-md-2 col-md-8">
-                    {{ payment_form | as_bootstrap }}
-                </div>
+                        <p>Delivery Info</p>
+                        <div class="form-group offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
+                            {{ order_form | as_bootstrap }}
+                        </div>
+                        <br>
+                        <p>Payment Info</p>
+                        <div class="form-group offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
+                            {{ payment_form | as_bootstrap }}
+                        </div>
 
-                {% csrf_token %}
-                <div class="form-group col-md-12">
-                    <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                        {% csrf_token %}
+                        <div class="form-group col-md-12">
+                            <input class="btn btn-custom" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </section>
