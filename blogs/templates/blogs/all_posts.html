@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="offset-1 col-10 offset-md-2 col-md-8">
+                    <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
                         <h1>Community</h1>
                         <br>
                         <p>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="row">
                     {% for post in posts %}
-                        <div class="offset-1 col-10 offset-md-2 col-md-8">
+                        <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
                             <hr>
                             <h4><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                             <p>posted by: {{ post.author }}<br>on {{ post.published_date }}</p>
