@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required()
@@ -29,6 +30,9 @@ def post_new(request):
 @login_required()
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        messages.error(request, "You can only edit the posts you have made!")
+        return redirect('all_posts')
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -45,6 +49,9 @@ def post_edit(request, pk):
 @login_required()
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        messages.error(request, "You can only delete the posts you have made!")
+        return redirect('all_posts')
     post.delete()
     return redirect('all_posts')
 
@@ -61,6 +68,7 @@ def posts_search(request):
     return render(request, "blogs/all_posts.html", {"posts": posts})
 
 
+@login_required()
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
