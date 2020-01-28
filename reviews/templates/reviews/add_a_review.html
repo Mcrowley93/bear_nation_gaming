@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block page_title %}New Review{% endblock %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+    <section class="page-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
+                        <h1>Add a Review</h1>
+                        <br>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form | as_bootstrap }}
+                            <br>
+                            <input class="btn btn-custom sm-btn-sizing" type="submit" value="Submit">
+                        </form>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
