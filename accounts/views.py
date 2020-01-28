@@ -9,6 +9,7 @@ from .forms import UserLoginForm, UserRegistrationForm
 def register(request):
     """ Render the registration page """
     if request.user.is_authenticated:
+        messages.success(request, "You are already logged in! Log out to register a new user!")
         return redirect(reverse('home'))
 
     if request.method == "POST":
@@ -34,6 +35,7 @@ def register(request):
 def login(request):
     """Return a login page"""
     if request.user.is_authenticated:
+        messages.success(request, "You are already logged in!")
         return redirect(reverse('home'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
@@ -53,7 +55,7 @@ def login(request):
             messages.success(request, "You have successfully logged in!")
             return redirect(reverse('home'))
         else:
-            login_form.add_error(None, "Your username or password is incorrect")
+            messages.error(request, "Your username or password is incorrect")
 
     else:
         login_form = UserLoginForm()
