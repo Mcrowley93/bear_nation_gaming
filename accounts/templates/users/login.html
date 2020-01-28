@@ -9,21 +9,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1>Log In</h1>
-                    <br>
+                    <div class="row">
+                        <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
+                            <h1>Log In</h1>
+                            <br>
 
-                    {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                    {% endif %}
+                            <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                {{ login_form | as_bootstrap }}
 
-                    <form method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        {{ login_form | as_bootstrap }}
-
-                        <input class="btn btn-custom sm-btn-sizing" type="submit" value="Login">
-                    </form>
-                    <br>
-                    <p><a class="text-links" href="{% url 'password_reset' %}">Forgot password?</a></p>
+                                <input class="btn btn-custom sm-btn-sizing" type="submit" value="Login">
+                            </form>
+                            <br>
+                            <p><a class="text-links" href="{% url 'password_reset' %}">Forgot password?</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
