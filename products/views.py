@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
+from .forms import ProductReviewForm
 
 
 def all_products(request):
@@ -16,3 +17,18 @@ def products_search(request):
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'products/product_details.html', {'product': product})
+
+
+def add_review_to_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        product_review_form = ProductReviewForm(request.POST)
+        if product_review_form.is_valid():
+            product_review = product_review_form.save(commit=False)
+            product_review.reviewer = request.user
+            product_review.product = product
+            product_review.save()
+            return redirect('product_details', pk=product.pk)
+    else:
+        product_review_form = ProductReviewForm()
+    return render(request, 'products/add_review_to_product.html', {'product_review_form': product_review_form})
