@@ -6,10 +6,13 @@
     <section class="page-container">
         <div class="row">
             <div class="col-12">
-                <br>
                 <h1>Merchandise</h1>
                 <br>
-
+                <p>
+                    When it comes to showing the love and feeling like part of something bigger, look no further than the Bear Nation Gaming merchandise store!<br>
+                    Maybe grab yourself one of our BNG logo T-shirts and show your pride for our community when doing your weekly trip to the supermarket, or perhaps a BNG logo Playstation controller is more your vibe?<br>
+                    Either way, there is something for everyone, and every purchase helps us to keep growing the community and provide you with the content you deserve!
+                </p>
                 <br>
                 <div class="row">
                     <div id="search" class="offset-1 col-10 offset-md-2 col-md-8 mx-auto">
@@ -19,8 +22,8 @@
                                         <input type="text" name="query" class="form-control" placeholder="Search">
                                     </p>
                                     <p>
-                                        <button class="btn btn-dark ml-1" type="submit">Search</button>
-                                        <a class="btn btn-dark ml-1" href="{% url 'all_products' %}">Cancel</a>
+                                        <button class="btn btn-custom sm-btn-sizing ml-1" type="submit">Search</button>
+                                        <a class="btn btn-custom sm-btn-sizing ml-1" href="{% url 'all_products' %}">Cancel</a>
                                     </p>
                             </div>
                         </form>
@@ -34,18 +37,21 @@
                                 <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Image of {{ product.name }}"/>
                                 <div class="card-body">
                                     <h5 class="card-title"><a class="text-links" href="{% url 'product_details' pk=product.pk %}">{{ product.name }}</a></h5>
-                                    <p class="card-text">{{ product.description }}</p>
+                                    <p class="card-text">One size fits all!</p>
                                     <p class="card-text">£{{ product.price }}</p>
-                                    <div class="offset-1 col-10">
-                                        <form method="POST" action="{% url 'add_to_cart' product.id %}">
-                                            {% csrf_token %}
-                                            <div class="input-group">
-                                                <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="quantity">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-custom" type="submit">Add</button>
-                                                </span>
-                                            </div>
-                                        </form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label for="product-quantity" class="small">Quantity</label>
+                                                        <input id="product-quantity" name="quantity" type="number" min="1" max="999" class="form-control sm-btn-sizing mx-auto text-center" placeholder="---">
+                                                        <button class="btn btn-custom sm-btn-sizing" type="submit">Add</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
