@@ -37,12 +37,13 @@
             <div class="col-12">
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
-                        <br>
-                        <a class="btn btn-custom lg-btn-sizing" href="{% url 'add_review_to_product' pk=product.pk %}">Review the Product</a>
-                        <br>
-                        <br>
-                        <hr>
+                        {% if request.user.is_authenticated %}
+                            <a class="btn btn-custom lg-btn-sizing" href="{% url 'add_review_to_product' pk=product.pk %}">Review the Product</a>
+                            <br>
+                            <hr>
+                        {% endif %}
                         <h3>Reviews</h3>
+                        <br>
                         {% for review in product.productreviews.all %}
                             <hr>
                             <div class="comment">
