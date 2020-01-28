@@ -19,11 +19,10 @@
                         {% csrf_token %}
                         {{ registration_form | as_bootstrap }}
                         <br>
-                        <input type="submit" value="Submit">
+                        <button type="submit" class="save btn btn-custom sm-btn-sizing">Submit</button>
                     </form>
                     <br>
-                    <p>If you already have an account, you can <a href="{%url 'login' %}">sign in here!</a></p>
-                    <br>
+                    <p>If you already have an account, you can <a class="text-links" href="{%url 'login' %}">sign in here!</a></p>
                 </div>
             </div>
         </div>

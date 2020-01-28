@@ -16,25 +16,14 @@
                     <p>Your username and password didn't match. Please try again.</p>
                     {% endif %}
 
-                    {% if next %}
-                        {% if user.is_authenticated %}
-                        <p>Your account doesn't have access to this page. To proceed,
-                        please login with an account that has access.</p>
-                        {% else %}
-                        <p>Please login to see this page.</p>
-                        {% endif %}
-                    {% endif %}
-
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         {{ login_form | as_bootstrap }}
 
-                        <input type="submit" value="login">
-                        <input type="hidden" name="next" value="{{ next }}">
+                        <input class="btn btn-custom sm-btn-sizing" type="submit" value="Login">
                     </form>
                     <br>
-                    <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
-                    <br>
+                    <p><a class="text-links" href="{% url 'password_reset' %}">Forgot password?</a></p>
                 </div>
             </div>
         </div>
