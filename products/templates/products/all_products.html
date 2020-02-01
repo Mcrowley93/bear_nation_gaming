@@ -40,7 +40,6 @@
                                         <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Image of {{ product.name }}"/>
                                         <div class="card-body">
                                             <h5 class="card-title"><a class="text-links" href="{% url 'product_details' pk=product.pk %}">{{ product.name }}</a></h5>
-                                            <p class="card-text">One size fits all!</p>
                                             <p class="card-text">£{{ product.price }}</p>
                                             <div class="row">
                                                 <div class="col-12">
