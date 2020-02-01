@@ -2,11 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductReviewForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 
 def all_products(request):
     products = Product.objects.all()
-    return render(request, 'products/all_products.html', {"products": products})
+    paginator = Paginator(products, 4)
+    page = request.GET.get('page')
+    paged_products = paginator.get_page(page)
+    return render(request, 'products/all_products.html', {"products": paged_products})
 
 
 # products_search function is case insensitive and gets the 'query' and filters the Products based on name
