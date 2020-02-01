@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="col-12 offset-md-1 col-md-10">
-                    <h1>Bear Nation Gaming</h1>
+                    <h1 class="orange-text">Bear Nation Gaming</h1>
                     <h3>Forging a community of like-minded gamers!</h3>
                     <br>
                     {% if user.is_authenticated %}
-                        <h5>Welcome back {{ request.user.username }}!</h5>
+                        <h5>Welcome back <span class="orange-text">{{ request.user.username }}</span>!</h5>
                     {% else %}
                         <h5>Welcome!</h5>
                     {% endif %}

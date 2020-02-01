@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-12 offset-md-1 col-md-10">
-                    <h1>Checkout</h1>
+                    <h1 class="orange-text">Checkout</h1>
                     <br>
                     {% if product_count == 1 %}
                         <p>You have {{ product_count }} item currently in your cart:</p>
@@ -67,7 +67,7 @@
                 <div class="col-12 offset-md-1 col-md-10">
                     <br>
                     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-                        <legend>Payment Details</legend>
+                        <legend class="orange-text">Payment Details</legend>
 
                         <div id="credit-card-errors" style="display: none;">
                             <div class="alert-message block-message error" id="stripe-error-message"></div>

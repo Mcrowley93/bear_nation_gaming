@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_title %}{{ post.title }}{% endblock %}
+{% block page_title %}New Post{% endblock %}
 
 {% load bootstrap_tags %}
 
@@ -10,10 +10,11 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
-                        <h1 class="orange-text">New comment</h1>
+                        <h1 class="orange-text">New Community Post</h1>
+                        <br>
                         <form method="POST" class="post-form">{% csrf_token %}
-                            {{ comment_form | as_bootstrap }}
-                            <button type="submit" class="save btn btn-custom sm-btn-sizing">Send</button>
+                            {{ form | as_bootstrap }}
+                            <button type="submit" class="btn btn-custom sm-btn-sizing">Post</button>
                         </form>
                         <!-- Created a button to go back one page using javascript and the users history -->
                         <a class="btn btn-custom sm-btn-sizing" href="javascript:history.back()">Cancel</a>
