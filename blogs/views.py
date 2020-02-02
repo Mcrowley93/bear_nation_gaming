@@ -4,12 +4,16 @@ from .models import Post
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 @login_required()
 def all_posts(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, "blogs/all_posts.html", {"posts": posts})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(posts, 6)
+    page = request.GET.get('page')
+    paged_posts = paginator.get_page(page)
+    return render(request, "blogs/all_posts.html", {"posts": paged_posts})
 
 
 @login_required()
