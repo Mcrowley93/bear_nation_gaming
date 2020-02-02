@@ -3,11 +3,15 @@ from .models import Review
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import AddReviewForm
+from django.core.paginator import Paginator
 
 
 def all_reviews(request):
     reviews = Review.objects.all()
-    return render(request, 'reviews/reviews.html', {"reviews": reviews})
+    paginator = Paginator(reviews, 6)
+    page = request.GET.get('page')
+    paged_reviews = paginator.get_page(page)
+    return render(request, 'reviews/reviews.html', {"reviews": paged_reviews})
 
 
 @login_required()
