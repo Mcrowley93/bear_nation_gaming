@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 offset-md-1 col-md-10">
-                        <h1>Reviews</h1>
+                        <h1 class="orange-text">Reviews</h1>
                         <br>
                         <p>
                             The one thing every gamer will agree on: there are so many games, and not enough time to play them all!<br>
@@ -36,18 +36,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 offset-md-1 col-md-10">
+                    <div class="col-12 offset-lg-1 col-lg-10">
                         <div class="row">
                             {% for review in reviews %}
                             <div class="col-12 col-sm-6">
-                                <div class="card mb-3 border-dark" style="background-color: #696969;">
+                                <div class="card mb-3" style="background-color: #696969;">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="card-body">
-                                                <h3 class="card-title orange-text">{{ review.game_title }}</h3>
-                                                <p class="small">written by: <span class="orange-text">{{ review.author }}</span><br>on {{ review.created_date }}</p>
-                                                <p class="card-text">{{ review.review }}</p>
-                                                <p class="card-text">Score: <span class="orange-text">{{ review.score }}/10</span></p>
+                                                <h4 class="review-card-title"><a class="text-links" href="{% url 'read_review' pk=review.pk %}">{{ review.game_title | truncatewords:5 }}</a></h4>
+                                                <p class="review-card-author small">written by: <span class="orange-text">{{ review.author }}</span><br>on {{ review.created_date }}</p>
+                                                <p class="card-text"><a class="text-links" href="{% url 'read_review' pk=review.pk %}">Click to read review...</a></p>
                                             </div>
                                         </div>
                                     </div>
