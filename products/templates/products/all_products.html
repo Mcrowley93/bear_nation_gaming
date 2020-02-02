@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 offset-md-1 col-md-10">
+                    <div class="col-12 offset-lg-1 col-lg-10">
                         <h1 class="orange-text">Merchandise</h1>
                         <br>
                         <p>
@@ -35,11 +35,11 @@
                         <br>
                         <div class="row">
                             {% for product in products %}
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="card mb-3 border-dark" style="background-color: #696969;">
                                         <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Image of {{ product.name }}"/>
                                         <div class="card-body">
-                                            <h5 class="card-title"><a class="text-links" href="{% url 'product_details' pk=product.pk %}">{{ product.name }}</a></h5>
+                                            <h5 class="product-card-title"><a class="text-links" href="{% url 'product_details' pk=product.pk %}">{{ product.name }}</a></h5>
                                             <p class="card-text">£{{ product.price }}</p>
                                             <div class="row">
                                                 <div class="col-12">
@@ -47,9 +47,9 @@
                                                         {% csrf_token %}
                                                         <div class="row">
                                                             <div class="col-12">
-                                                                <label for="product-quantity" class="small">Quantity</label>
-                                                                <input id="product-quantity" name="quantity" type="number" min="1" max="999" value="1" class="form-control sm-btn-sizing mx-auto text-center">
-                                                                <button class="btn btn-custom sm-btn-sizing" type="submit">Add</button>
+                                                                <label for="product-quantity" class="small">Quantity:</label>
+                                                                <input id="product-quantity" name="quantity" type="number" min="1" max="999" value="1" class="form-control product-btn-sizing mx-auto text-center">
+                                                                <button class="btn btn-custom product-btn-sizing" type="submit">Add</button>
                                                             </div>
                                                         </div>
                                                     </form>

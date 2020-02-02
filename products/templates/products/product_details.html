@@ -9,9 +9,9 @@
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
                         <span class="float-left"><a class="text-links" href="{% url 'all_products' %}"><i class="fas fa-arrow-left"></i></a></span>
-                        <h1>{{ product.name }}</h1>
+                        <h1 class="orange-text">{{ product.name }}</h1>
                         <br>
-                        <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top" alt="Image of {{ product.name }}"/>
+                        <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top product-details-image" alt="Image of {{ product.name }}"/>
                         <br>
                         <br>
                         <p>{{ product.description }}</p>
@@ -20,11 +20,12 @@
                         <div class="offset-1 col-10 offset-md-2 col-md-8">
                             <form method="POST" action="{% url 'add_to_cart' product.id %}">
                                 {% csrf_token %}
-                                <div class="input-group">
-                                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="quantity">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-custom" type="submit">Add</button>
-                                    </span>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="product-quantity" class="small">Quantity:</label>
+                                        <input id="product-quantity" name="quantity" type="number" min="1" max="999" value="1" class="form-control product-btn-sizing mx-auto text-center">
+                                        <button class="btn btn-custom product-btn-sizing" type="submit">Add</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -42,17 +43,17 @@
                             <br>
                             <hr>
                         {% endif %}
-                        <h3>Reviews</h3>
+                        <h3 class="orange-text">Reviews</h3>
                         {% for review in product.productreviews.all %}
                             <hr>
                             <div class="comment">
                                 <div class="date small">{{ review.created_date }}</div>
                                 <p class="orange-text">{{ review.reviewer }}</p>
                                 <p>{{ review.review|linebreaks }}</p>
-                                <p>Rating: {{ review.rating }}/5</p>
+                                <p>Rating: <span class="orange-text">{{ review.rating }}/5</span></p>
                             </div>
                         {% empty %}
-                            <p>No reviews here yet! :(</p>
+                            <p>No reviews here yet!</p>
                         {% endfor %}
                     </div>
                 </div>
