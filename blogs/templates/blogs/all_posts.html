@@ -39,6 +39,7 @@
                     {% for post in posts %}
                         <div class="col-12 offset-lg-1 col-lg-10">
                             <hr>
+                            <br>
                             <h4><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
                             <p>posted by: <span class="orange-text">{{ post.author }}</span><br>on {{ post.published_date }}</p>
                             <p>{{ post.text|truncatechars:50 }}</p>
