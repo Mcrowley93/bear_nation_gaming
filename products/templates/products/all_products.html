@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 offset-lg-1 col-lg-10">
+                    <div class="col-12 offset-md-1 col-md-10">
                         <h1 class="orange-text">Merchandise</h1>
                         <br>
                         <p>
@@ -16,12 +16,14 @@
                             Either way, there is something for everyone, and every purchase helps us to keep growing the community and provide you with the content you deserve!
                         </p>
                         <br>
+                        <hr>
                         <div class="row">
                             <div id="search" class="offset-1 col-10 offset-md-2 col-md-8 mx-auto">
                                 <form action="{% url 'products_search' %}" method="GET">
                                     <div class="form-group">
                                             <p>
-                                                <input type="text" name="query" class="form-control" placeholder="Search">
+                                                <label for="products-search" class="orange-text">Search</label>
+                                                <input type="text" name="query" class="form-control" placeholder="e.g. T-Shirt">
                                             </p>
                                             <p>
                                                 <button class="btn btn-custom sm-btn-sizing ml-1" type="submit">Search</button>
