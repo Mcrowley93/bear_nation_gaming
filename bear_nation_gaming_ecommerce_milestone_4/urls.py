@@ -16,3 +16,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
+
+handler404 = 'home.views.error_404_view'

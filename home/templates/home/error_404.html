@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_title %}404 error{% endblock %}
+
+{% block content %}
+    <section class="page-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <h1 class="orange-text">Error 404 - ooops...</h1>
+                        <br>
+                        <p>
+                            It looks like something went wrong, and the page could not be found!<br>
+                            <br>
+                            If you would you like to go back to the previous page, click <a class="text-links" href="javascript:history.back()" class="text_links">here</a>...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
