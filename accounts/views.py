@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegistrationForm
+from reviews.models import Review
+from blogs.models import Post
+from django.core.paginator import Paginator
 
 
 # Registration View
@@ -68,3 +71,14 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('home'))
+
+
+# help with pagination from: https://docs.djangoproject.com/en/2.2/topics/pagination/
+@login_required
+def user_account(request):
+    posts = Post.objects.all()
+    reviews = Review.objects.all()
+    paginator = Paginator(reviews, 6)
+    page = request.GET.get('page')
+    paged_reviews = paginator.get_page(page)
+    return render(request, 'users/user_account.html', {"reviews": paged_reviews, "posts": posts})

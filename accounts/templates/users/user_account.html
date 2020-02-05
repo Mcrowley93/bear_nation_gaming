@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Your Account{% endblock %}
+
+{% block content %}
+    <section class="page-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <h1 class="orange-text">Your Account</h1>
+                        <br>
+                        <p>
+                            This is your profile page <span class="orange-text">{{ request.user.username }}</span>.
+                            <br>
+                            From here you can see all of the reviews and community posts that you have written and submitted.
+                            <br>
+                            You are able to view the review/post that you submitted easily by pressing "VIEW".
+                            Alternatively, if you are wishing to edit or delete a review or community post, you are able to access both of those options by pressing either "EDIT" or "DELETE".<br>
+                            <br>
+                            If there are any issues you may have regarding previous orders you may have placed, or if you have any exciting ideas you would like to consider, please feel free to send an email to: <span class="orange-text">bearnationgames@gmail.com</span>.
+                            <br>
+                            <br>
+                            We'd like to end by saying thank you from the bottom of our hearts for becoming part of our ever-growing community, and we look forward to seeing you around!
+
+                        </p>
+                        <br>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <h3 class="orange-text">Posts written by you</h3>
+                        <br>
+                        {% for post in posts %}
+                            {% if user == post.author %}
+                                <p>
+                                    {{ post.title }} &nbsp &nbsp
+                                    <span><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">VIEW</a>/<a class="text-links" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>/<a class="text-links" href="{% url 'post_remove' pk=post.pk %}">DELETE</a></span>
+                                </p>
+                            {% endif %}
+                        {% endfor %}
+                        <br>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <h3 class="orange-text">Reviews submitted by you</h3>
+                        <br>
+                            {% for review in reviews %}
+                                {% if user == review.author %}
+                                    <p>
+                                        {{ review.game_title }} &nbsp &nbsp
+                                        <span><a class="text-links" href="{% url 'read_review' pk=review.pk %}">VIEW</a>/<a class="text-links" href="{% url 'edit_a_review' pk=review.pk %}">EDIT</a>/<a class="text-links" href="{% url 'remove_review' pk=review.pk %}">DELETE</a></span>
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mx-auto">
+                        {% if reviews.has_other_pages %}
+                            <ul class="pagination">
+                                {% if reviews.has_previous %}
+                                    <li class="page-item">
+                                        <a href="?page={{reviews.previous_page_number}}" class="page-link"><i class="fas fa-angle-double-left"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link"><i class="fas fa-angle-double-left"></i></a>
+                                    </li>
+                                {% endif %}
+                                {% for i in reviews.paginator.page_range %}
+                                    {% if reviews.number == i %}
+                                        <li class="page-item active">
+                                            <a class="page-link">{{i}}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a href="?page={{i}}" class="page-link">{{i}}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if reviews.has_next %}
+                                    <li class="page-item">
+                                        <a href="?page={{reviews.next_page_number}}" class="page-link"><i class="fas fa-angle-double-right"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link"><i class="fas fa-angle-double-right"></i></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
