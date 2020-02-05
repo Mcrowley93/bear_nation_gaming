@@ -120,6 +120,16 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
+                            {% if 'user_account' in request.path %}
+                                <a class="nav-link active" href="{% url 'user_account' %}">
+                                    <i class="fas fa-user"></i> Your Account</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'user_account' %}">
+                                    <i class="fas fa-user"></i> Your Account</a>
+                            {% endif %}
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">
                                 <i class="fas fa-sign-out-alt"></i> Logout</a>
                         </li>
