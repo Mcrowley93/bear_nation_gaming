@@ -30,71 +30,49 @@
                 </div>
                 <div class="row">
                     <div class="col-12 offset-md-1 col-md-10">
-                        <h3 class="orange-text">Posts written by you</h3>
-                        <br>
-                        {% for post in posts %}
-                            {% if user == post.author %}
-                                <p>
-                                    {{ post.title }} &nbsp &nbsp
-                                    <span><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">VIEW</a>/<a class="text-links" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>/<a class="text-links" href="{% url 'post_remove' pk=post.pk %}">DELETE</a></span>
-                                </p>
-                            {% endif %}
-                        {% endfor %}
+                        <div class="accordion" id="accordionExample">
+                            <a class="text-links" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h3 class="orange-text">Posts written by you</h3>
+                                <p class="orange-text small">click to expand</p>
+                            </a>
+                            <br>
+                            <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                {% for post in posts %}
+                                    {% if user == post.author %}
+                                        <p>
+                                            {{ post.title }} &nbsp &nbsp
+                                            <span><a class="text-links" href="{% url 'post_detail' pk=post.pk %}">VIEW</a>/<a class="text-links" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>/<a class="text-links" href="{% url 'post_remove' pk=post.pk %}">DELETE</a></span>
+                                        </p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
                         <br>
                         <hr>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 offset-md-1 col-md-10">
-                        <h3 class="orange-text">Reviews submitted by you</h3>
-                        <br>
-                            {% for review in reviews %}
-                                {% if user == review.author %}
-                                    <p>
-                                        {{ review.game_title }} &nbsp &nbsp
-                                        <span><a class="text-links" href="{% url 'read_review' pk=review.pk %}">VIEW</a>/<a class="text-links" href="{% url 'edit_a_review' pk=review.pk %}">EDIT</a>/<a class="text-links" href="{% url 'remove_review' pk=review.pk %}">DELETE</a></span>
-                                    </p>
-                                {% endif %}
-                            {% endfor %}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="mx-auto">
-                        {% if reviews.has_other_pages %}
-                            <ul class="pagination">
-                                {% if reviews.has_previous %}
-                                    <li class="page-item">
-                                        <a href="?page={{reviews.previous_page_number}}" class="page-link"><i class="fas fa-angle-double-left"></i></a>
-                                    </li>
-                                {% else %}
-                                    <li class="page-item disabled">
-                                        <a class="page-link"><i class="fas fa-angle-double-left"></i></a>
-                                    </li>
-                                {% endif %}
-                                {% for i in reviews.paginator.page_range %}
-                                    {% if reviews.number == i %}
-                                        <li class="page-item active">
-                                            <a class="page-link">{{i}}</a>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-item">
-                                            <a href="?page={{i}}" class="page-link">{{i}}</a>
-                                        </li>
+                        <div class="accordion" id="accordionExample">
+                            <a class="text-links" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <h3 class="orange-text">Reviews submitted by you</h3>
+                                <p class="orange-text small">click to expand</p>
+                            </a>
+                            <br>
+                            <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                {% for review in reviews %}
+                                    {% if user == review.author %}
+                                        <p>
+                                            {{ review.game_title }} &nbsp &nbsp
+                                            <span><a class="text-links" href="{% url 'read_review' pk=review.pk %}">VIEW</a>/<a class="text-links" href="{% url 'edit_a_review' pk=review.pk %}">EDIT</a>/<a class="text-links" href="{% url 'remove_review' pk=review.pk %}">DELETE</a></span>
+                                        </p>
                                     {% endif %}
                                 {% endfor %}
-                                {% if reviews.has_next %}
-                                    <li class="page-item">
-                                        <a href="?page={{reviews.next_page_number}}" class="page-link"><i class="fas fa-angle-double-right"></i></a>
-                                    </li>
-                                {% else %}
-                                    <li class="page-item disabled">
-                                        <a class="page-link"><i class="fas fa-angle-double-right"></i></a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <br>
                 <br>
             </div>
         </div>
