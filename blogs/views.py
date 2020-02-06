@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -86,3 +86,13 @@ def add_comment_to_post(request, pk):
     else:
         comment_form = CommentForm()
     return render(request, 'blogs/add_comment_to_post.html', {'comment_form': comment_form})
+
+
+@login_required()
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if request.user != comment.author:
+        messages.error(request, "You can only delete comments you have written!")
+        return redirect('all_posts')
+    comment.delete()
+    return redirect('all_posts')

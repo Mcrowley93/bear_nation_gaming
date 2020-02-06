@@ -39,9 +39,12 @@
                                 <div class="date small">{{ comment.created_date }}</div>
                                 <p class="orange-text">{{ comment.author }}</p>
                                 <p>{{ comment.text|linebreaks }}</p>
+                                {% if request.user == comment.author %}
+                                    <a class="text-links small" href="{% url 'delete_comment' pk=comment.pk %}">DELETE</a>
+                                {% endif %}
                             </div>
                         {% empty %}
-                            <p>No comments here yet! :(</p>
+                            <p>No comments here yet!</p>
                         {% endfor %}
                     </div>
                 </div>
