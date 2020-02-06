@@ -78,7 +78,4 @@ def logout(request):
 def user_account(request):
     posts = Post.objects.all()
     reviews = Review.objects.all()
-    paginator = Paginator(reviews, 6)
-    page = request.GET.get('page')
-    paged_reviews = paginator.get_page(page)
-    return render(request, 'users/user_account.html', {"reviews": paged_reviews, "posts": posts})
+    return render(request, 'users/user_account.html', {"reviews": reviews, "posts": posts})
