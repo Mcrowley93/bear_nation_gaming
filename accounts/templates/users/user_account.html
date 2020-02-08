@@ -33,10 +33,11 @@
                         <div class="accordion" id="accordionExample">
                             <a class="text-links" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <h3 class="orange-text">Posts written by you</h3>
-                                <p class="orange-text small">click to expand</p>
+                                <p class="small">click to collapse/expand</p>
                             </a>
                             <br>
                             <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                <br>
                                 {% for post in posts %}
                                     {% if user == post.author %}
                                         <p>
@@ -56,15 +57,42 @@
                         <div class="accordion" id="accordionExample">
                             <a class="text-links" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                 <h3 class="orange-text">Reviews submitted by you</h3>
-                                <p class="orange-text small">click to expand</p>
+                                <p class="small">click to collapse/expand</p>
                             </a>
                             <br>
                             <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                <br>
                                 {% for review in reviews %}
                                     {% if user == review.author %}
                                         <p>
                                             {{ review.game_title }} &nbsp &nbsp
                                             <span><a class="text-links" href="{% url 'read_review' pk=review.pk %}">VIEW</a>/<a class="text-links" href="{% url 'edit_a_review' pk=review.pk %}">EDIT</a>/<a class="text-links" href="{% url 'remove_review' pk=review.pk %}">DELETE</a></span>
+                                        </p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 offset-md-1 col-md-10">
+                        <div class="accordion" id="accordionExample">
+                            <a class="text-links" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <h3 class="orange-text">Your Orders</h3>
+                                <p class="small">click to collapse/expand</p>
+                            </a>
+                            <br>
+                            <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                <br>
+                                {% for user_order in user_orders %}
+                                    {% if request.user == user_order.order.username %}
+                                        <p>
+                                            <span class="orange-text">Order ID:</span> {{ user_order.order.id }}<br>
+                                            <span class="orange-text">Order Date:</span> {{ user_order.order.date }}<br>
+                                            <span class="orange-text">Product:</span> {{ user_order.product }}<br>
+                                            <span class="orange-text">Quantity:</span> {{ user_order.quantity }}<br>
                                         </p>
                                     {% endif %}
                                 {% endfor %}

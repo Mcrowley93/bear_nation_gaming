@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegistrationForm
 from reviews.models import Review
 from blogs.models import Post
+from checkout.models import Order, OrderLineItem, Product
 from django.core.paginator import Paginator
 
 
@@ -78,4 +79,5 @@ def logout(request):
 def user_account(request):
     posts = Post.objects.all()
     reviews = Review.objects.all()
-    return render(request, 'users/user_account.html', {"reviews": reviews, "posts": posts})
+    user_orders = OrderLineItem.objects.all()
+    return render(request, 'users/user_account.html', {"reviews": reviews, "posts": posts, "user_orders": user_orders})
