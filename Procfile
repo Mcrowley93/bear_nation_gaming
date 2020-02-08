@@ -1,0 +1,1 @@
+web: gunicorn bear_nation_gaming_ecommerce_milestone_4.wsgi:application
