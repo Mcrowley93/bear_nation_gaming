@@ -21,7 +21,11 @@
                                 <input class="btn btn-custom sm-btn-sizing" type="submit" value="Login">
                             </form>
                             <br>
-                            <p><a class="text-links" href="{% url 'password_reset' %}">Forgot password?</a></p>
+                            <p>
+                                <a class="text-links" href="{% url 'password_reset' %}">Forgot password?</a><br>
+                                OR<br>
+                                Not registered yet? <a class="text-links" href="{% url 'register' %}">Click here!</a>
+                            </p>
                         </div>
                     </div>
                 </div>
