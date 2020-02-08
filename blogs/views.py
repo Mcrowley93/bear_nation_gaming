@@ -68,7 +68,7 @@ def post_detail(request, pk):
 
 # posts_search function is case insensitive and gets the 'query' and filters the Posts based on name
 def posts_search(request):
-    posts = Post.objects.filter(title__icontains=request.GET['query'])
+    posts = Post.objects.filter(title__icontains=request.GET['query']) | Post.objects.filter(author__username__icontains=request.GET['query'])
     return render(request, "blogs/all_posts.html", {"posts": posts})
 
 

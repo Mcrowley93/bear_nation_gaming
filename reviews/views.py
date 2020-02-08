@@ -56,7 +56,7 @@ def edit_a_review(request, pk):
 
 # reviews_search function is case insensitive and gets the 'query' and filters the Products based on game_title
 def reviews_search(request):
-    reviews = Review.objects.filter(game_title__icontains=request.GET['query'])
+    reviews = Review.objects.filter(game_title__icontains=request.GET['query']) | Review.objects.filter(platform__icontains=request.GET['query']) | Review.objects.filter(score__icontains=request.GET['query'])
     return render(request, "reviews/reviews.html", {"reviews": reviews})
 
 
