@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product
+from .models import Product, Productreview
 from .forms import ProductReviewForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 def all_products(request):
@@ -38,3 +39,13 @@ def add_review_to_product(request, pk):
     else:
         product_review_form = ProductReviewForm()
     return render(request, 'products/add_review_to_product.html', {'product_review_form': product_review_form})
+
+
+@login_required()
+def delete_product_review(request, pk):
+    product_review = get_object_or_404(Productreview, pk=pk)
+    if request.user != product_review.reviewer:
+        messages.error(request, "You can only delete product reviews you have previously submitted!")
+        return redirect('all_products')
+    product_review.delete()
+    return redirect('all_products')

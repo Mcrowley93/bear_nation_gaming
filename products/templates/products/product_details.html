@@ -51,6 +51,9 @@
                                 <p class="orange-text">{{ review.reviewer }}</p>
                                 <p>{{ review.review|linebreaks }}</p>
                                 <p>Rating: <span class="orange-text">{{ review.rating }}/5</span></p>
+                                {% if request.user == review.reviewer %}
+                                    <a class="text-links small" href="{% url 'delete_product_review' pk=review.pk %}">DELETE</a>
+                                {% endif %}
                             </div>
                         {% empty %}
                             <p>No reviews here yet!</p>
