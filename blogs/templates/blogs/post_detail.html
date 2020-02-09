@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8">
-                        <span class="float-left"><a class="text-links" href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a></span>
+                        <p class="small back-to-all-page"><a class="text-links" href="{% url 'all_posts' %}"><i class="fas fa-arrow-left"></i> Community</a></p>
                         <h1 class="orange-text">{{ post.title }}</h1>
                         <p class="small">posted by: <span class="orange-text">{{ post.author }}</span><br>on {{ post.published_date }}</p>
                         <br>

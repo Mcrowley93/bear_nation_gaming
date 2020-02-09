@@ -8,13 +8,13 @@
             <div class="col-12">
                 <div class="row">
                     <div class="offset-1 col-10 offset-md-2 col-md-8">
-                        <span class="float-left"><a class="text-links" href="{% url 'all_products' %}"><i class="fas fa-arrow-left"></i></a></span>
+                        <p class="small back-to-all-page"><a class="text-links" href="{% url 'all_products' %}"><i class="fas fa-arrow-left"></i> Merchandise</a></p>
                         <h1 class="orange-text">{{ product.name }}</h1>
                         <br>
                         <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img-top product-details-image" alt="Image of {{ product.name }}"/>
                         <br>
                         <br>
-                        <p>{{ product.description }}</p>
+                        <p>{{ product.description | linebreaksbr}}</p>
                         <p>£{{ product.price }}</p>
                         <br>
                         <div class="offset-1 col-10 offset-md-2 col-md-8">
