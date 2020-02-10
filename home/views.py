@@ -7,3 +7,7 @@ def home(request):
 
 def error_404_view(request, exception):
     return render(request, 'home/error_404.html')
+
+
+def error_500_view(request):
+    return render(request, 'home/error_500.html')
