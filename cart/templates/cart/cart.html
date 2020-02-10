@@ -63,7 +63,11 @@
                     <h4>Total:&nbsp</h4>
                     <p>£{{ total }}</p>
                     <p>
-                        <a href="{% url 'checkout' %}" class="btn btn-custom sm-btn-sizing" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                        {% if product_count == 0 %}
+                            <a href="{% url 'view_cart' %}" class="btn btn-custom sm-btn-sizing" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                        {% else %}
+                            <a href="{% url 'checkout' %}" class="btn btn-custom sm-btn-sizing" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
+                        {% endif %}
                     </p>
                 </div>
             </div>
