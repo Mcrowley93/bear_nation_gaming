@@ -4,9 +4,9 @@ By Martin Crowley
 
 [![Build Status](https://travis-ci.org/Mcrowley93/bear_nation_gaming.svg?branch=master)](https://travis-ci.org/Mcrowley93/bear_nation_gaming)
 
-###User Experience (UX)
+### User Experience (UX)
 
-####Project Purpose
+#### Project Purpose
 In this project I am focusing on creating a website aimed towards the gaming community that will give them some background on the group and their aims, as well as providing them with a platform on which they can read reviews for games, connect with other gamers and purchase Bear Nation Gaming merchandise which would help the brand to grow and expand on the content it creates.
 
 Users will also be able to register and login to access other features such as being able to add their own reviews to the website, as well as post their own messages to the community noticeboard to allow them to connect with other users. They will also be able to edit and delete the reviews they have added to the website (should such action need to be taken).
@@ -15,7 +15,7 @@ This project will use a postgres database, and the application itself will be se
 
 The primary target audience is anyone that has an interest in gaming, whether they are casual gamers that use their console to wind down in an evening, or the type of gamer to sit through a 12-hour gaming session like it’s nothing. Due to the nature of providing an online store that requires payment for merchandise, as well as being able to post/read messages and connect with others, the age range I will be targeting will be 18+.
 
-####Why would a user want this?
+#### Why would a user want this?
 The video games industry is worth around $152.1 billion (which is up by roughly 9.6% from the 2018 figure of $138.7 billion), and with around 2.3 billion gamers in the world. This shows the possible reach, and wide spread appeal for an application designed specifically for gamers that will provide them with the important information that they need to help them figure out if they’d enjoy a certain game or not. It would also allow less sociable gamers a chance to connect with likeminded people to exchange opinions and thoughts on the industry as a whole.
 
 Therefore users would benefit from the website as it would allow them to make well informed decisions on whether to buy into a game or not, based on what they have seen/read prior to the games release. It would also allow them to expand their social network, as they would come to the site and be able to connect with likeminded people that also have a passion for video gaming. The users would also be able to show their passion for gaming by being able to submit their own reviews, as well as support the growth of the website and brand as a whole by either donating, and/or being able to purchase merchandise from the e-store. This would allow for more meaningful content to be produced on a regular basis.
@@ -24,17 +24,17 @@ https://www.forbes.com/sites/kevinanderton/2019/06/26/the-business-of-video-game
 
 https://techjury.net/stats-about/video-games-industry/#gref
 
-####Why is this so special?
+#### Why is this so special?
 The application will give users an easy and accessible way to view reviews on various games (whether existing or new releases), as well as providing a social element to allow other users to post comments to a message board. This would therefore encourage them to share their opinions and thoughts and even exchange PSN IDs/Gamertags, so that they may be able to connect and play online together. It also allows them to show their support through the purchase of merchandise on the website e-store, which would also help the user feel like a part of the community rather than just another registered user.
 
-####User Experience
+#### User Experience
 The site itself will follow standard web design conventions and so the layout and initial use of the site should feel immediately recognisable to almost all users, with those lacking experience in web browsing finding the website to be self-explanatory and easy to use/navigate.
 
 The Home page will immediately inform the user of the site’s purpose, through the use of a gaming related background image, as well as the site being labelled “Bear Nation Gaming”, and the tagline “Forging a community of likeminded gamers.”
 
 If this doesn’t display the sites purpose clearly enough, then it will be very apparent from the rest of the information displayed on the home page as to what the site has to offer.
 
-####User Stories
+#### User Stories
 It is key to think about what the user would require from such a site:
 - As a user, I'd like to be able to view reviews of games, to give me a better idea of whether I’d like the game or not
 - As a user, I'd like to add new reviews to the database/website that aren’t currently featured on the website
@@ -51,18 +51,18 @@ It is key to think about what the user would require from such a site:
 
 Whilst the website aims to provide a service for the user and their needs ultimately need to be fulfilled to provide a good user experience, the site will also benefit the Site creator/admin, as they will be able to grow their website and brand through merchandise sales. The site will create the feeling of a community coming together by allowing users to interact with each other, as well as by allowing users to upload their own reviews. This allows the website to gain more traction as other users may come to the website to find specific reviews that they can’t find elsewhere, or to try and find other users that they can connect/play online with. This will in turn cause more traffic on the website, which also increases the chances of merchandise sales, as users feel more inclined to keep the community and brand growing.
 
-####Design Ideas
+#### Design Ideas
 When thinking about the layout and the design of the site, I wanted it to look professional and of a high standard, so I used some dark colours (black, dark grey) and some bold colours (White, Orange) so as to make the website stand out and look both professional and memorable. It also has a clean aesthetic, and feels easy and approachable when using it.
 
 I broke the design down into various style decisions:
-#####Font
+##### Font
 I will be using “Exo 2” for the website’s used font type, as this is a no-frills, modern, professional looking font that is easy to read.
-#####Colour Scheme
+##### Colour Scheme
 I have opted for a darker background picture containing a PS4 controller, and the rest of the site will be of a similar colour scheme. With the grey, white and oranges being used to contrast the dark colour of the navbar, footer and background image.
-#####Icons
+##### Icons
 With this project, I used Font Awesome for the icons used on the website. This was due to Font Awesome providing a large range of icons that were easily recognisable and could be used to provide visual flare. (https://fontawesome.com/icons?d=gallery) 
 
-###Wireframes
+### Wireframes
 For my wireframes, I designed these using “Justinmind Prototyper”.
 
 For the most part, I have tried keeping the wireframes and the website fairly similar, however during the creation of certain parts of the website, other pages were conceived to allow the users of the website to feel like they have more involvement with the content on the website. For example the community page was originally going to be a community message board, but more along the lines of a continuous chat page. Yet during the creation of the community page it made more sense to make it more like a community blog, wherein users could make community posts, and these posts could be viewed and commented on by other users. 
@@ -73,8 +73,8 @@ For Desktop, Mobile and tablet I opted to use a hamburger button in the top righ
 
 These wireframes have been included and are able to be viewed in a separate directory/folder called "Wireframes", which have subdirectories called "Desktop" and "Mobile". The views on Tablet will look like either the mobile OR the desktop wireframes, depending on whether the tablet itself is a small tablet or a large tablet, however the desktop wireframes will be the ones that will be seen on the majority of tablets due to the viewpoints, columns and styling used being so similar between tablets/desktops.
 
-###Features
-####Current Features
+### Features
+#### Current Features
 - Feature 1 – Navigation
     - The navigation bar will be a dropdown side-nav, that will be accessed through clicking on the hamburger button. This is to streamline the navigation for the website, as well as leaving a clean amount of space and to save the nav looking cluttered 
     - The options displayed on the nav will also change depending on whether the user is logged in (should they have previously registered). If the user has not logged in, they will see the options on the nav to “Register” and “Log In”, whereas if the user is logged in, they will see “My Account”, “Community” and “Log Out” in their place.
@@ -125,7 +125,7 @@ These wireframes have been included and are able to be viewed in a separate dire
 - Feature 14 - Log Out
     - When a user decides they want to log out of the site, the option to do so is located on the navbar once the user is logged in.
     - Once the user chooses to log out, they will be taken back to the home page as a guest, with the default nav options available for a guest user (Home, Reviews, Register, Log In, Merchandise, Cart).
-####Future Features
+#### Future Features
 - Feature 1 – Media/Gameplay
     - I would eventually like to add a section that will contain forms of media, ranging from clips of gameplay uploaded by both myself and also other users, to artwork, etc… This could allow for some fun montages, but also allow for the community to share their favourite new creations online with others.
 - Feature 2 – Donate
@@ -138,7 +138,7 @@ These wireframes have been included and are able to be viewed in a separate dire
     - Pycharm was the IDE I chose to use for this project, and all code was written in Pycharm.
 - Justinmind Prototyper
     - Justinmind was used to create the wireframes for the project
-####Front-end technologies/frameworks/languages
+#### Front-end technologies/frameworks/languages
 - HTML5
     - The markup language used for the project
 - CSS3
@@ -151,29 +151,29 @@ These wireframes have been included and are able to be viewed in a separate dire
     - Font Awesome was used to provide the website with suitable icons.
 - Google Fonts
     - Google Fonts provided the “Exo2” font used throughout the project.
-####Back-end technologies/frameworks/languages
+#### Back-end technologies/frameworks/languages
 - Python
     - Python has been used to run the backend of the application
 - Django
     - The project uses Django which is a Python Web Framework used as the backend of the project and fulfilling functions such as; connecting to the SQL database, controlling routing and navigation across pages etc.
-####Databases
+#### Databases
 - Postgres/SQLite3
     - Postgres was used for the database for my deployed project.
     - SQLite was used for the test database, as was used for when the postgres database couldn’t be accessed
-####Version control
+#### Version control
 - Git & GitHub
     - Git used for version control
     - GitHub used as a remote repository and the hosting of this site
-####Deployment
+#### Deployment
 - Heroku
     - Heroku is used to host the app
-####Payment processing
+#### Payment processing
 - Stripe API
     - The project uses Stripe on the front and back end to take users information and process payments
 
 There were also many libraries used in this project, which are available to see in the “requirements.txt” file
 
-###Testing
+### Testing
 
 When carrying out testing on the project, I set up Continuous Integration using Travis, and set up automated testing on models, and views for all the apps. These tests are available to see by looking at the individual “test_“ files set up in each app.
 
@@ -310,7 +310,7 @@ The devices my friends and family tested on were:
 - iPad Pro
 - Various desktops
 
-####Carrying out tests
+#### Carrying out tests
 If you are wishing to test the various functions of the website, you can register and login using said registered user account, or alternatively you can log in and use the account that I have made for test purposes, wherein you are able to see the reviews, posts and purchases made in the “Your Account” page. You may add new reviews, comments and posts as this user (which you can then edit and delete if you want to test that functionality), but please do not edit or remove any content that was added using this user initially as it was added to demonstrate the various functions available to the user (please note that the reset password function can only be accessed if you register your own user, as it will require you to have access to the email account that you enter).
 - USERNAME: BearNationUser
 - PASSWORD: letsgame123
@@ -320,7 +320,7 @@ Also, when entering card details in the checkout, ensure you don’t use your ac
 - For the cvc, you can use any 3 numbers
 - The expiry month/year can be any valid month/year combination
 
-###Deployment
+### Deployment
 
 My application was coded in Pycharm. Once I had created the workspace in Pycharm for my project to be built in, I then went into the terminal used the Command Line Interface command “git init” to create a local Git repository.
 
@@ -340,17 +340,17 @@ Prior to deploying the project to heroku, I also had to update my requirements.t
 
 Once these steps were complete I could click on the Deploy tab in the Heroku app dashboard and use the Github deployment method which connects the app to my Github repository, I then turned on automatic deploys, so any changes made to the project that are then pushed to my Github repository are automatically updated on the application once live. All that was left to do was to manually Deploy Branch, this allows you to see a build log for the app being made, but once this step was done the app was deployed on Heroku and was able to be opened and used.
 
-###Credits
-####Content
+### Credits
+#### Content
 Code for the database website/app was written by myself with knowledge I’ve picked up from the code institute course.
-####Code used from others
+#### Code used from others
 Code to allow accounts to login with both a username OR an email was adapted from: https://www.youtube.com/watch?v=c7PqMsQiWKU
 
 Help creating the post models/views from: https://tutorial.djangogirls.org/en/django_views/
 
 Help creating the comment model was from: https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/
 
-####Media
+#### Media
 
 Black-ps4-controller: (taken by Garrett Morrow)
 https://www.pexels.com/photo/4k-wallpaper-black-black-background-console-1647369/
@@ -382,7 +382,7 @@ The above URL was used for the background image on the site.
 It is taken from a website called “Wallpaper Flare”, which is a royalty free site, and it was free to use. 
 All other images used were royalty free, but I included links for the images so others may be able to locate and use them.  
 
-###Acknowledgements
+### Acknowledgements
 - Spencer Barriball - My Code Institude assigned mentor, for his invaluable knowledge, guidance and advice.
 - Daniel Kew (LemonGhost) – who wrote the review for breath of the wild for me to use with my projects during the CI course.
 - My family – For their patience and understanding and for supporting me when I came to bumps in the road.
