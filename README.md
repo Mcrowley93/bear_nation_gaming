@@ -176,7 +176,7 @@ There were also many libraries used in this project, which are available to see 
 
 ### Testing
 
-When carrying out testing on the project, I set up Continuous Integration using Travis, and set up automated testing on models, and views for all the apps. These tests are available to see by looking at the individual “test_“ files set up in each app.
+When carrying out testing on the project, I set up Continuous Integration using Travis, and set up automated testing for each of the apps. These tests are available to see by looking at the individual “test_“ files set up in each app.
 
 I set up the CI by first creating a .travis.yml file in my project, and then linking my GitHub repository to Travis by adding the build status mark-up that was provided by Travis. Once this was set up, the checks were carried out every time the code was pushed to the GitHub repository.
 
