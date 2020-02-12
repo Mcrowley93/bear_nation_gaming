@@ -50,14 +50,14 @@ It is key to think about what the user would require from such a site:
 - As a user, I’d like to be able to search the website/database for the products in the store that match the search criteria
 - As a user, I'd like to be able to access the data and experience all the site has to offer, regardless of device and browser type being used
 
-Whilst the website aims to provide a service for the user and their needs ultimately need to be fulfilled to provide a good user experience, the site will also benefit the Site creator/admin, as they will be able to grow their website and brand through merchandise sales. The site will create the feeling of a community coming together by allowing users to interact with each other, as well as by allowing users to upload their own reviews. This allows the website to gain more traction as other users may come to the website to find specific reviews that they can’t find elsewhere, or to try and find other users that they can connect/play online with. This will in turn cause more traffic on the website, which also increases the chances of merchandise sales, as users feel more inclined to keep the community and brand growing.
+Whilst the website aims to provide a service for the user (their needs ultimately need to be fulfilled to provide a good user experience), the site will also benefit the Site creator/admin, as they will be able to grow their website and brand through merchandise sales. The site will create the feeling of a community coming together by allowing users to interact with each other, as well as by allowing users to upload their own reviews. This allows the website to gain more traction as other users may come to the website to find specific reviews that they can’t find elsewhere, or to try and find other users that they can connect/play online with. This will in turn cause more traffic on the website, which also increases the chances of merchandise sales, as users feel more inclined to keep the community and brand growing.
 
 #### Design Ideas
 When thinking about the layout and the design of the site, I wanted it to look professional and of a high standard, so I used some dark colours (black, dark grey) and some bold colours (White, Orange) so as to make the website stand out and look both professional and memorable. It also has a clean aesthetic, and feels easy and approachable when using it.
 
 I broke the design down into various style decisions:
 ##### Font
-I will be using “Exo 2” for the website’s used font type, as this is a no-frills, modern, professional looking font that is easy to read.
+The font type used on the website was “Exo 2”, as this is a no-frills, modern, professional looking font that is easy to read.
 ##### Colour Scheme
 I have opted for a darker background picture containing a PS4 controller, and the rest of the site will be of a similar colour scheme. With the grey, white and oranges being used to contrast the dark colour of the navbar, footer and background image.
 ##### Icons
@@ -343,7 +343,7 @@ Once these steps were complete I could click on the Deploy tab in the Heroku app
 
 ### Credits
 #### Content
-Code for the database website/app was written by myself with knowledge I’ve picked up from the code institute course.
+Code for the database website/app was written by myself with knowledge I’ve picked up from the Code Institute course.
 #### Code used from others
 Code to allow accounts to login with both a username OR an email was adapted from: https://www.youtube.com/watch?v=c7PqMsQiWKU
 
@@ -385,6 +385,6 @@ All other images used were royalty free, but I included links for the images so 
 
 ### Acknowledgements
 - Spencer Barriball - My Code Institude assigned mentor, for his invaluable knowledge, guidance and advice.
-- Daniel Kew (LemonGhost) – who wrote the review for breath of the wild for me to use with my projects during the CI course.
+- Daniel Kew (LemonGhost) – who wrote the review for Breath Of The Wild for me to use with my projects during the CI course.
 - My family – For their patience and understanding and for supporting me when I came to bumps in the road.
 - All the people that helped to test my website and gave valuable feedback.
