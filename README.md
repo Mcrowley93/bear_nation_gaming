@@ -4,8 +4,9 @@ By Martin Crowley
 
 [![Build Status](https://travis-ci.org/Mcrowley93/bear_nation_gaming.svg?branch=master)](https://travis-ci.org/Mcrowley93/bear_nation_gaming)
 
-### User Experience (UX)
+The deployed project can be found at: https://bear-nation-gaming.herokuapp.com/
 
+### User Experience (UX)
 #### Project Purpose
 In this project I am focusing on creating a website aimed towards the gaming community that will give them some background on the group and their aims, as well as providing them with a platform on which they can read reviews for games, connect with other gamers and purchase Bear Nation Gaming merchandise which would help the brand to grow and expand on the content it creates.
 
