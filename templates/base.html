@@ -59,7 +59,7 @@
                         </li>
 
                         <li class="nav-item">
-                            {% if 'community' in request.path %}
+                            {% if 'all_posts' in request.path %}
                                 <a class="nav-link active" href="{% url 'all_posts' %}">
                                     <i class="fas fa-comments"></i> Community</a>
                             {% else %}
