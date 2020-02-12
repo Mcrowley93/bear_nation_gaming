@@ -123,7 +123,7 @@ These wireframes have been included and are able to be viewed in a separate dire
 - Feature 12 – Checkout
     - The user will be able to enter their delivery/shipping information and their card details on the checkout page, which will allow them to proceed with their order and finalise their purchase.
     - The checkout will only be accessible if the user has first logged in, so the user will be redirected to the login page if they are trying to access the checkout as a guest user.
-- Feature 14 - Log Out
+- Feature 13 - Log Out
     - When a user decides they want to log out of the site, the option to do so is located on the navbar once the user is logged in.
     - Once the user chooses to log out, they will be taken back to the home page as a guest, with the default nav options available for a guest user (Home, Reviews, Register, Log In, Merchandise, Cart).
 #### Future Features
